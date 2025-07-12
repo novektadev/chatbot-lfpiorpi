@@ -1,0 +1,81 @@
+/* css/style.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+.navbar.is-fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #1e3a8a; /* New Navy Blue */
+    color: white;
+}
+
+.navbar.is-fixed-top .navbar-item {
+    color: white;
+}
+
+.navbar.is-fixed-top .navbar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.navbar.is-fixed-top .navbar-brand .navbar-item .title {
+    color: white !important;
+}
+
+.navbar-burger span {
+    background-color: white;
+}
+
+.navbar.is-primary {
+    background-color: #1e3a8a !important; /* Override Bulma primary with new navy */
+}
+
+/* Footer Styling */
+.footer.is-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #1e3a8a; /* New Navy Blue */
+    color: white;
+
+    padding: 0.75rem 1.5rem; /* Maintain compact height */
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+/* Ensure links in footer are visible */
+.footer.is-fixed-bottom a {
+    color: lightblue;
+}
+
+.footer.has-background-dark {
+    background-color: #1e3a8a !important; /* Override Bulma dark with new navy */
+}
+
+
+/* Content Wrapper Styling */
+.content-wrapper {
+    flex-grow: 1;
+    padding-top: 52px; /* Matches header height */
+    padding-bottom: 52px; /* Set to roughly header/footer height for clearance */
+    overflow-y: auto; /* Explicitly ensure vertical scroll if content overflows */
+    background-color: white;
+    color: #363636;
+}
+
+/* Style for the active nav item */
+.navbar-item.is-active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
