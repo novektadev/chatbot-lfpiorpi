@@ -1,0 +1,107 @@
+// loads document tree //
+
+let documentAsTree = null;
+
+async function loadDocumentAsTree() {
+    try {
+        const response = await fetch('/assets/data/documentAsTree.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        documentAsTree = data;
+        return documentAsTree;
+
+    } catch (error) {
+        console.error("Failed to load or parse documentAsTree.json:", error);
+        return null;
+    }
+}
+
+export {documentAsTree, loadDocumentAsTree };
+
+// loads context model //
+
+let contextModel = null;
+
+async function loadContextModel() {
+    try {
+        const response = await fetch('/assets/data/contextModel.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data =  await response.json();
+        contextModel = data;
+        return contextModel;
+
+    } catch (error) {
+        console.error("Failed to load or parse contextModel.json:", error);
+        return null;
+    }
+}
+
+export {contextModel, loadContextModel};
+
+// loads bag of words //
+
+let bagOfWords = null;
+
+async function loadBagOfWords() {
+    try {
+        const response = await fetch('assets/data/bagOfWords.json')
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+        bagOfWords = data;
+        return bagOfWords;
+
+    } catch (error) {
+        console.error("Failed to load or parse bagOfWords.json:", error);
+        return null;
+    }
+}
+
+export {bagOfWords, loadBagOfWords};
+
+
+// loads stop words //
+
+const stopWords = [];
+
+async function loadStopWords() {
+    const data =  ['a', 'al', 'algo', 'algunas', 'algunos', 'ambos', 'ambas',
+                   'ante', 'antes', 'aquel', 'aquella', 'aquellas', 'aquellos', 
+                   'aqui', 'asi', 'aun', 'bajo', 'bien', 'cabe', 'cada', 'casi', 
+                   'cierto', 'ciertas', 'ciertos', 'como', 'con', 'conmigo', 'consigo', 
+                   'contigo', 'contra', 'cual', 'cuales', 'cualquier', 'cuando', 'cuanto', 
+                   'cuanta', 'cuantas', 'cuantos', 'de', 'del', 'demas', 'demasiado', 
+                   'demasiada', 'demasiados', 'demasiadas', 'dentro', 'desde', 'donde', 
+                   'dos', 'e', 'el', 'ella', 'ellas', 'ellos', 'en', 'entre', 'es', 
+                   'esa', 'esas', 'ese', 'esos', 'esta', 'estas', 'este', 'estos', 'esta', 
+                   'estan', 'estar', 'estaba', 'estaban', 'estamos', 'este', 'estoy', 'excepto', 
+                   'fin', 'fue', 'fueron', 'fui', 'fuimos', 'ha', 'hacia', 'hace', 'hacen', 
+                   'hacer', 'hacemos', 'haces', 'hago', 'han', 'hasta', 'hay', 'haya', 
+                   'he', 'hemos', 'hola', 'hoy', 'la', 'las', 'le', 'les', 'lo', 'los', 
+                   'mal', 'mas', 'mas', 'me', 'menos', 'mi', 'mio', 'mia', 'mios', 'mias', 
+                   'mis', 'mucho', 'mucha', 'muchos', 'muchas', 'muy', 'nada', 'nadie', 
+                   'ni', 'ningun', 'ninguna', 'ningunos', 'ningunas', 'no', 'nos', 'nosotras', 
+                   'nosotros', 'nuestra', 'nuestras', 'nuestro', 'nuestros', 'nunca', 'o', 'os', 
+                   'otra', 'otras', 'otro', 'otros', 'para', 'parecer', 'pero', 'poca', 
+                   'pocas', 'poco', 'pocos', 'poder', 'podemos', 'puede', 'pueden', 'puedo', 
+                   'por', 'que', 'que', 'quien', 'quienes', 'quiza', 'quizas', 'sabe', 
+                   'saben', 'sabes', 'segun', 'ser', 'si', 'siempre', 'siendo', 'sin', 
+                   'sino', 'sobre', 'somos', 'soy', 'su', 'sus', 'suyo', 'suya', 'suyos', 
+                   'suyas', 'tal', 'tales', 'tambien', 'tampoco', 'tan', 'tanto', 'tanta', 
+                   'tantos', 'tantas', 'te', 'teneis', 'tenemos', 'tengo', 'ti', 'tiempo', 
+                   'tiene', 'tienen', 'toda', 'todas', 'todo', 'todos', 'toma', 'tambien', 
+                   'tras', 'tu', 'tus', 'u', 'un', 'una', 'unos', 'unas', 'usted', 'ustedes', 
+                   'va', 'vamos', 'van', 'vaya','verdad', 'verdadera', 'verdadero', 'vosotras', 
+                   'vosotros', 'voy', 'y', 'ya', 'yo']
+    
+    stopWords.length = 0;
+    stopWords.push(...data)
+}
+
+export {stopWords, loadStopWords};
+
