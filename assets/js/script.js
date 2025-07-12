@@ -296,6 +296,7 @@ async function addMessageToChat(message, sender) {
     //console.log(newMessageDiv.innerHTML)
     chatContainer.appendChild(newMessageDiv)
     newMessageDiv.scrollIntoView({behavior: 'smooth', block:'end'})
+    userInput.value = '';
 }
 
 async function sendMessage() {
@@ -315,9 +316,11 @@ async function sendMessage() {
                 addMessageToChat(htmlResponse, 'bot')
             } else {
                 addMessageToChat('Para darte mejores resultados, necesito más detalles en tu pregunta. Por favor, añade un poco más de contexto', 'warning')
+                userInput.value = '';
             }
         } else {
             addMessageToChat(`Su consula "<strong>${textToSearch}"</strong>, no esta relacionada con los alcances de este chatbot`, 'error')
+            userInput.value = '';
         }
     }
 }
