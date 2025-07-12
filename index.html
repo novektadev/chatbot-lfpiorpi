@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/assets/img/icons/flaticon/novektaFlaticon32px.png" type="image/png" sizes="32x32">
+        <title>NOVEKTA</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        <nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+            <div class="container"> 
+                <div class="navbar-brand" style="display: flex; align-items: center;">
+                    <a class="navbar-item" href="#home">
+                        <img src="assets/img/icons/novektaRecRedTransparent40px.png" alt="Company Logo" style="max-height: 3rem;">
+                    </a>
+                    <h3>
+                        CHATBOT | IA - Aprendizaje Automatico
+                    </h3>
+                </div>
+            </div>
+        </nav>
+
+        <section class="section" style="flex-grow: 1; padding-top: 52px; padding-bottom: 52px; overflow-y: auto;">
+            <!-- content-wrapper con estilos en línea -->
+            <div class="content-wrapper" id="contentWrapper"
+                 style="background-color: white; color: #363636; max-width: 960px; margin: 0 auto; padding: 1rem;">
+                <!-- Las columnas de Bulma aquí se mostrarán lado a lado -->
+                <div class="columns">
+                    <!-- Columna Izquierda (8/12 del ancho) -->
+                    <div class="column is-8">
+                        <div class="box">
+                            <h2 class="title is-4">Área de Mensajes</h2>
+                            <div id="chatContainer" class="chat-container"
+                                 style="height: 60vh; overflow-y: auto; border: 1px solid #dbdbdb; padding: 1rem; background-color: #fafafa; border-radius: 0.5rem;">
+                                <div class="message-bubble bot-message" style="background-color: #e6f7ff; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">
+                                    <strong>Agente:</strong> ¡Hola! ¿Dudas sobre la Ley Federal Para La Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita? Gracias a la Inteligencia Artificial basada en métodos de aprendizaje automátic (ML) puedo emplear búsquedas semánticas para ayudar a aclarar tus dudas.
+                                </div>
+                            </div>
+                            <div class="typing-indicator" id="typingIndicator"
+                                 style="display: none; font-style: italic; color: #7a7a7a; margin-top: 0.5rem;">
+                                <i class="fas fa-spinner fa-spin"></i> Analizando documentos legales...
+                            </div>
+                            <div class="field has-addons" style="margin-top: 1rem;">
+                                <div class="control is-expanded">
+                                    <input id="userInput" class="input" type="text" placeholder="Pregunta sobre la ley de prevención de lavado de dinero..."
+                                           style="border-radius: 0.5rem;">
+                                </div>
+                                <div class="control">
+                                    <button id="sendButton" class="button is-primary" style="border-radius: 0.5rem;">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha (4/12 del ancho) -->
+                    <div class="column is-4">
+                        <div class="box" style="border-radius: 0.5rem;">
+                            <div class="field">
+                                <label class="label">¿Podrías especificar la cantidad de unidades de contexto (chunks) relevantes que recomiendas para mejorar el rendimiento?</label>
+                                <div class="control">
+                                    <input id="maxChunks" class="input" type="number" min="2" max="10" value="3"
+                                           style="border-radius: 0.5rem;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box" style="border-radius: 0.5rem;">
+                            <h4 class="title is-6">Ejemplos de consulta</h4>
+                            <div class="content">
+                                <!-- Se añadió la clase 'is-link' para hacer los botones visibles -->
+                                <button class="button is-small is-outlined is-link example-btn" data-query="cual es el objeto de esta ley en el sistema financiero?"
+                                        style="border-radius: 0.5rem; margin-bottom: 0.5rem;background-color: #9ce0db;">
+                                    ¿cual es el objeto de esta<br>en ley en el sistema financiero?
+                                </button>
+                                <button class="button is-small is-outlined is-link example-btn" data-query="¿que aplica para los donativos por parte de las asociaciones y sociedades sin fines de lucro?"
+                                        style="border-radius: 0.5rem; margin-bottom: 0.5rem;background-color: #9ce0db;">
+                                    ¿que aplica para los donativos<br> por parte de las asociaciones y<br>sociedades sin fines de lucro?
+                                </button>
+                                <button class="button is-small is-outlined is-link example-btn" data-query="¿que aplica a la emision y venta de tarjetas prepagadas?"
+                                        style="border-radius: 0.5rem;background-color: #9ce0db;">
+                                    ¿que aplica a la emision y <br> venta de tarjetas prepagadas?
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer is-fixed-bottom has-background-dark has-text-white">
+            <div class="container"> <div class="content has-text-centered">
+                    <p><strong class="has-text-white">novekta</strong> 2025</p>
+                    <p>Tiempo local en Culiacán Sinaloa: <span id="currentTime"></span></p>
+                    <div class="mt-4">
+                        <a class="button is-outlined is-light mr-2">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a class="button is-outlined is-light mr-2">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a class="button is-outlined is-light">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> 
+        </footer>
+
+        <script type="module" src="assets/js/readModelData.min.js"></script>
+        <script type="module" src="assets/js/script.min.js"></script>
+
+    </body>
+</html>
