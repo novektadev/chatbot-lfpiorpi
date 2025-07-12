@@ -4,7 +4,7 @@ let documentAsTree = null;
 
 async function loadDocumentAsTree() {
     try {
-        const response = await fetch('/assets/data/documentAsTree.json');
+        const response = await fetch('assets/data/documentAsTree.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -26,7 +26,7 @@ let contextModel = null;
 
 async function loadContextModel() {
     try {
-        const response = await fetch('/assets/data/contextModel.json');
+        const response = await fetch('assets/data/contextModel.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
